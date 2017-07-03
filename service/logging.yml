@@ -1,0 +1,5 @@
+# Only service who required filebeat for activated logging
+tomcat:
+  grock:
+    - "access-logs"
+    - "tomcat-logs"
