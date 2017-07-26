@@ -5,13 +5,17 @@ pipeline {
       steps {
         echo 'Init Surikator build'
         git(url: 'https://github.com/sebastienmusso/infradatamgmt', branch: 'master')
-        sh 'ls -l'
+        sh '''ls -l
+docker version
+docker images
+docker ps'''
       }
     }
     stage('Build') {
       steps {
         echo 'Building Surikator with Docker container'
-        sh 'sh ./ci_code.sh'
+        sh '''sh ./ci_code.sh
+'''
       }
     }
     stage('Test Surikator') {
