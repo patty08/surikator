@@ -11,8 +11,7 @@ pipeline {
     stage('Build') {
       steps {
         echo 'Building Surikator with Docker container'
-        sh '''cd ${GOPATH}/src/github.com/sebastienmusso
-sudo ./ci_code.sh'''
+        sh 'sh ./ci_code.sh'
       }
     }
     stage('Test Surikator') {
