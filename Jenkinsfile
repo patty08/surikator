@@ -10,8 +10,7 @@ pipeline {
     stage('Build') {
       steps {
         echo 'BuildinngSurikator with Docker container'
-        sh '''sh "docker-composer build"
-sh "docker-compose -f surikator.yml up -d"'''
+        sh './ci_code.sh'
       }
     }
     stage('Test Surikator') {
