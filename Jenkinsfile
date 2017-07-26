@@ -20,7 +20,6 @@ pipeline {
         parallel(
           "Test DEV": {
             echo 'Dev test'
-            sh 'docker ps'
             
           },
           "Test Ops": {
