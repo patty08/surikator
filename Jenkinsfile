@@ -5,23 +5,13 @@ pipeline {
       steps {
         echo 'Init Surikator build'
         git(url: 'https://github.com/sebastienmusso/infradatamgmt', branch: 'patty')
-        sh '''sh "git rev-parse HEAD > .git/commit-id"
-def commit_id = readFile('.git/commit-id').trim()
-println commit_id'''
+        sh 'sh \'bash ./ci_init.sh\''
       }
     }
     stage('Build') {
       steps {
         echo 'BuildinngSurikator with Docker container'
-        sh '''echo "---------------------------------------------------------------------------------"
-echo " Stage Init: Initialisation of Surikator"
-echo "---------------------------------------------------------------------------------"
-
-echo "Surikator is tested on docker version 17.03 and 17.04"
-docker version
-
-echo "docker "
-'''
+        sh 'sh \'bash ./ci-code.sh\''
       }
     }
     stage('Test Surikator') {
@@ -45,8 +35,7 @@ echo "docker "
     }
     stage('Publish') {
       steps {
-        sh '''app.push 'master'
-app.push "${commit_id}"'''
+        sh 'app.push \'CI_Jenkins\''
       }
     }
   }
