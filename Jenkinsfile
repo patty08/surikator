@@ -4,11 +4,7 @@ pipeline {
     stage('initSurikator') {
       steps {
         echo 'Init Surikator build'
-        git(url: 'https://github.com/sebastienmusso/infradatamgmt', branch: 'patty')
-        ws(dir: '${GOPATH}/src/github.com/sebastienmusso') {
-          echo 'Set workspace'
-        }
-        
+        git(url: 'https://github.com/sebastienmusso/infradatamgmt', branch: 'master')
       }
     }
     stage('Build') {
