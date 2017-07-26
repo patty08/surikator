@@ -10,9 +10,9 @@ pipeline {
     stage('Build') {
       steps {
         echo 'BuildinngSurikator with Docker container'
-        sh '''apt get docker-compose -y
-docker-compose -f surikator.yml up
-docker-compose -f elk_backEnd.yml up'''
+        sh '''sh "docker-composer build"
+sh "docker-compose up -d"
+waitUntilServicesReady'''
       }
     }
     stage('Test Surikator') {
