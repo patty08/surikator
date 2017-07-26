@@ -19,10 +19,12 @@ pipeline {
         parallel(
           "Test DEV": {
             echo 'Dev test'
+            sh 'sh \'bash ./ci-dev.sh\''
             
           },
           "Test Ops": {
             echo 'Ops test'
+            sh 'sh \'bash ./ci-ops.sh\''
             
           }
         )
