@@ -6,9 +6,7 @@ pipeline {
         echo 'Init Surikator build'
         git(url: 'https://github.com/sebastienmusso/infradatamgmt', branch: 'master')
         sh '''ls -l
-docker version
-docker images
-docker ps'''
+docker version'''
       }
     }
     stage('Build') {
