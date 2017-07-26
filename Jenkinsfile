@@ -10,7 +10,8 @@ pipeline {
     stage('Build') {
       steps {
         echo 'BuildinngSurikator with Docker container'
-        sh '''docker-compose -f surikator.yml up
+        sh '''apt get docker-compose -y
+docker-compose -f surikator.yml up
 docker-compose -f elk_backEnd.yml up'''
       }
     }
@@ -19,14 +20,13 @@ docker-compose -f elk_backEnd.yml up'''
         parallel(
           "Test DEV": {
             echo 'Dev test'
-            sh '''curl localhost:5601
-curl localhost:9200
-curl localhost:12201'''
+            sh 'docker ps'
             
           },
           "Test Ops": {
             echo 'Ops test'
-            sh 'sh \'bash ./ci-ops.sh\''
+            sh '''curl localhost:5601
+curl localhost:6060'''
             
           }
         )
