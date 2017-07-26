@@ -1,5 +1,10 @@
 pipeline {
-  agent any
+  agent {
+    docker {
+      image 'patsoo08/surikator'
+    }
+    
+  }
   stages {
     stage('initSurikator') {
       steps {
