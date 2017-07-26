@@ -11,8 +11,7 @@ pipeline {
       steps {
         echo 'BuildinngSurikator with Docker container'
         sh '''sh "docker-composer build"
-sh "docker-compose up -d"
-waitUntilServicesReady'''
+sh "docker-compose -f surikator.yml up -d"'''
       }
     }
     stage('Test Surikator') {
