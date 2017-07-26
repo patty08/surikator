@@ -5,11 +5,15 @@ pipeline {
       steps {
         echo 'Init Surikator build'
         git(url: 'https://github.com/sebastienmusso/infradatamgmt', branch: 'patty')
+        ws(dir: '${GOPATH}/src/github.com/sebastienmusso') {
+          echo 'Set workspace'
+        }
+        
       }
     }
     stage('Build') {
       steps {
-        echo 'BuildinngSurikator with Docker container'
+        echo 'Building Surikator with Docker container'
         sh './ci_code.sh'
       }
     }
