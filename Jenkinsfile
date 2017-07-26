@@ -10,7 +10,7 @@ pipeline {
     stage('Build') {
       steps {
         echo 'Building Surikator with Docker container'
-        sh './ci_code.sh'
+        sh 'sudo ./ci_code.sh'
       }
     }
     stage('Test Surikator') {
