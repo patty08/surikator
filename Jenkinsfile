@@ -5,7 +5,7 @@ pipeline {
       steps {
         echo 'Init Surikator build'
         git(url: 'https://github.com/sebastienmusso/infradatamgmt', branch: 'master')
-        sh 'll'
+        sh 'sh "ls -l"'
       }
     }
     stage('Build') {
