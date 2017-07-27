@@ -1,7 +1,7 @@
 pipeline {
   agent {
     docker {
-      image 'docker pull patsoo08/surikator'
+      image 'patsoo08/surikator'
     }
     
   }
