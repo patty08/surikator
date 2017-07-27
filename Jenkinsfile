@@ -13,8 +13,8 @@ pipeline {
       stage('Build') {
         steps {
           script {
-            withDockerContainer('docker pull patsoo08/surikator') {
-              
+            withDockerContainer("docker pull patsoo08/surikator") {
+              echo "test"
             }
           }
           
