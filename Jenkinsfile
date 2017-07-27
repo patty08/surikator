@@ -8,7 +8,7 @@ pipeline {
   stages {
     stage('initSurikator') {
       steps {
-        echo 'Init Surikator build'
+        echo 'echo "---------------------------------------------------------------------------------"         echo " Stage Init: Initialisation of Surikator"         echo "---------------------------------------------------------------------------------"'
         git(url: 'https://github.com/sebastienmusso/infradatamgmt', branch: 'master')
         sh 'ls -l'
       }
