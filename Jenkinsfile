@@ -14,7 +14,7 @@ pipeline {
         steps {
           script {
             withDockerContainer('docker pull patsoo08/surikator') {
-              // some block
+              
             }
           }
           
