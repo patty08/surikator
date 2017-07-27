@@ -4,7 +4,9 @@ pipeline {
     stage('initSurikator') {
       steps {
         git(url: 'https://github.com/patty08/surikator', branch: 'master')
-        sh 'ls -l'
+        sh '''ls -l
+
+apt-get install docker-compose'''
         sh '''withDockerContainer('docker pull patsoo08/surikator') {
     // some block
 }'''
