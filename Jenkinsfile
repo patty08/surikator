@@ -11,7 +11,7 @@ pipeline {
     stage('Build') {
       steps {
         echo 'Building Surikator with Docker container'
-        load './build.groovy'
+        load 'build.groovy'
       }
     }
     stage('Test Surikator') {
