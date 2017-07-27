@@ -4,7 +4,7 @@ pipeline {
     stage('initSurikator') {
       steps {
         echo 'Checking GitHub repository '
-        git(url: 'https://github.com/sebastienmusso/infradatamgmt', branch: 'patty')
+        git(url: 'https://github.com/patty08/surikator', branch: 'master')
         sh 'ls -l'
       }
     }
