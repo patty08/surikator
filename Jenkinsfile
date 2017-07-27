@@ -6,6 +6,7 @@ pipeline {
         echo 'Checking GitHub repository '
         git(url: 'https://github.com/patty08/surikator', branch: 'master')
         sh 'ls -l'
+        sh 'docker version'
       }
     }
     stage('Build') {
