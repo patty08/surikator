@@ -1,7 +1,7 @@
 pipeline {
   agent {
     docker {
-      image 'https://hub.docker.com/r/patsoo08/surikator/'
+      image 'docker pull patsoo08/surikator'
     }
     
   }
