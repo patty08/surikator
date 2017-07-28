@@ -11,7 +11,8 @@ pipeline {
 docker info 
 docker version
 docker ps
-docker-compose version'''
+docker-compose version
+docker-compose -f surikator.yml up'''
       }
     }
     stage('Build') {
