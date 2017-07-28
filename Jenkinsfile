@@ -33,7 +33,8 @@ docker run -d patsoo08/kibana
           },
           "Test Ops": {
             echo 'Ops test'
-            sh '''curl localhost:5601
+            sh '''sleep 30
+curl localhost:5601
 curl localhost:6060'''
             
           }
