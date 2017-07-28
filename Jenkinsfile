@@ -7,7 +7,9 @@ pipeline {
         sh '''ls -l 
 docker info 
 docker version
-docker ps'''
+docker ps
+
+docker-compose'''
       }
     }
     stage('Build') {
