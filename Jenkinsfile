@@ -3,7 +3,6 @@ pipeline {
   stages {
     stage('initSurikator') {
       steps {
-        git(url: 'https://github.com/patty08/surikator', branch: 'master')
         sh '''ls -l
 '''
       }
