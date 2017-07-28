@@ -3,7 +3,10 @@ pipeline {
   stages {
     stage('initSurikator') {
       steps {
-        git(url: 'https://github.com/patty08/surikator', branch: 'master')
+        ws(dir: 'wrk') {
+          git(url: 'https://github.com/patty08/surikator', branch: 'master')
+        }
+        
         sh '''ls -l 
 docker info 
 docker version
@@ -13,10 +16,7 @@ docker-compose version'''
     }
     stage('Build') {
       steps {
-        ws(dir: 'wrk') {
-          sh 'docker-compose -f surikator.yml up -d'
-        }
-        
+        sh 'docker-compose -f surikator.yml up -d'
       }
     }
     stage('Test Surikator') {
