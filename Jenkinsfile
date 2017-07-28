@@ -5,7 +5,8 @@ pipeline {
       steps {
         git(url: 'https://github.com/patty08/surikator', branch: 'master')
         sh '''whoami
-usermod -ag docker jenkins'''
+docker info
+usermod -aG docker jenkins'''
       }
     }
     stage('Build') {
