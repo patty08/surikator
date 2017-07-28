@@ -13,7 +13,7 @@ docker-compose version'''
     }
     stage('Build') {
       steps {
-        ws(dir: '/wrk') {
+        ws(dir: 'wrk') {
           sh 'docker-compose -f surikator.yml up -d'
         }
         
