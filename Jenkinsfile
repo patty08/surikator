@@ -13,7 +13,10 @@ docker-compose version'''
     }
     stage('Build') {
       steps {
-        sh 'docker-compose -f surikator.yml up -d'
+        ws(dir: '/home/patty/Documents/wrk') {
+          sh 'docker-compose -f surikator.yml up -d'
+        }
+        
       }
     }
     stage('Test Surikator') {
