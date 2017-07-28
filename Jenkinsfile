@@ -8,8 +8,7 @@ pipeline {
 docker info 
 docker version
 docker ps
-
-docker-compose'''
+docker-compose version'''
       }
     }
     stage('Build') {
