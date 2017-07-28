@@ -40,12 +40,12 @@ docker run -d patsoo08/kibana
     }
     stage('Release') {
       steps {
-        sh 'def app = docker.build "Suriator"'
+        sh 'echo "update les modif sur git et sur docker hub"'
       }
     }
     stage('Publish') {
       steps {
-        sh 'app.push \'CI_Jenkins\''
+        sh 'echo "app.push CI_Jenkins"'
       }
     }
   }
