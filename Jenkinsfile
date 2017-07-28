@@ -1,8 +1,14 @@
 pipeline {
-  agent any
+  agent {
+    docker {
+      image 'ubuntu'
+    }
+    
+  }
   stages {
     stage('initSurikator') {
       steps {
+        git(url: 'https://github.com/patty08/surikator', branch: 'master')
         sh '''ls -l
 '''
       }
