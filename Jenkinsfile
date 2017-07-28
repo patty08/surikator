@@ -5,7 +5,7 @@ pipeline {
       steps {
         ws(dir: 'CISurikator') {
           git(url: 'https://github.com/patty08/surikator', branch: 'master')
-          fileExists 'surikator/rooter/configuration/metricbeat/metricbeat.yml'
+          fileExists '/rooter/configuration/metricbeat/metricbeat.yml'
         }
         
         sh '''ls -l 
@@ -16,9 +16,7 @@ docker ps'''
     }
     stage('Build') {
       steps {
-        sh '''mv /rooter/configuration/metricbeat/metricbeat.yml /usr/share/metricbeat/metricbeat.yml
-mv /rooter/configuration/metricbeat/conf /usr/share/metricbeat/conf
-docker-compose -f surikator.yml up'''
+        sh 'docker-compose -f surikator.yml up'
       }
     }
     stage('Test Surikator') {
