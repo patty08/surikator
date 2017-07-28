@@ -16,7 +16,7 @@ docker-compose version'''
     }
     stage('Build') {
       steps {
-        sh 'docker-compose -f surikator.yml up -d'
+        sh 'docker-compose up'
       }
     }
     stage('Test Surikator') {
