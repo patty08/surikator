@@ -4,12 +4,14 @@ pipeline {
     stage('initSurikator') {
       steps {
         git(url: 'https://github.com/patty08/surikator', branch: 'master')
-        sh 'docker-compose -f surikator.yml up'
+        sh '''docker version
+docker ps'''
       }
     }
     stage('Build') {
       steps {
-        sh 'docker ps'
+        sh '''docker-compose -f surikator.yml up -d
+docker ps'''
       }
     }
     stage('Test Surikator') {
