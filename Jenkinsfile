@@ -16,7 +16,12 @@ docker ps'''
     }
     stage('Build') {
       steps {
-        sh 'docker-compose -f surikator.yml up'
+        sh '''docker run -d patsoo08/surikator
+docker run -d patsoo08/metricbeat
+docker run -d patsoo08/elasticsearch
+docker run -d patsoo08/kibana
+
+'''
       }
     }
     stage('Test Surikator') {
