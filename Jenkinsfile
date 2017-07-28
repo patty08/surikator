@@ -1,5 +1,11 @@
 pipeline {
-  agent any
+  agent {
+    docker {
+      image 'ubuntu'
+      args 'latest'
+    }
+    
+  }
   stages {
     stage('initSurikator') {
       steps {
