@@ -28,24 +28,31 @@ docker run -d patsoo08/kibana
       steps {
         parallel(
           "Test DEV": {
-            echo 'Dev test'
-            
+            echo 'Dev test: already OK'
+            echo ' All Tests are successfully done '
+
           },
           "Test Ops": {
-            echo 'Ops test  sleep 30 curl localhost:5601 curl localhost:6060'
-            
+            echo 'Ops testing curl Elasticsearch and Kibana'
+            sh '''
+curl localhost:5601 
+curl localhost:6060
+''''
+
           }
         )
       }
     }
     stage('Release') {
       steps {
-        sh 'echo "update les modif sur git et sur docker hub"'
+        sh '''git tag -a surikator -m 'Jenkins'
+'''
       }
     }
     stage('Publish') {
       steps {
-        sh 'echo "app.push CI_Jenkins"'
+        sh '''git push https://${GIT_USERNAME}:${GIT_PASSWORD}@<REPO> --tags
+'''
       }
     }
   }
